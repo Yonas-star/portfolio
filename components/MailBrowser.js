@@ -21,7 +21,7 @@ export default function MailBrowser() {
             <div className={styles.favicon}>
               <Mail size={16} color="#0078d7" />
             </div>
-            <span className={styles.tabTitle}>Mail - thefstack@gmail.com</span>
+            <span className={styles.tabTitle}>Mail - yonaskassahunyoka@gmail.com</span>
             <X size={14} className={styles.closeTab} onClick={(e) => e.stopPropagation()} />
           </div>
         </div>
@@ -42,7 +42,7 @@ export default function MailBrowser() {
 
         <div className={styles.urlBar}>
           <Globe size={14} className={styles.urlIcon} />
-          <span className={styles.urlText}>mailto:thefstack@gmail.com</span>
+          <span className={styles.urlText}>mailto:yonaskassahunyoka@gmail.com</span>
         </div>
 
         <div className={styles.browserActions}>
@@ -69,10 +69,10 @@ export default function MailBrowser() {
             </div>
             <h2 className={styles.externalSiteTitle}>Send Email</h2>
             <p className={styles.externalSiteDescription}>
-              Click the button below to open your default email client and send an email to thefstack@gmail.com
+              Click the button below to open your default email client and send an email to yonaskassahunyoka@gmail.com
             </p>
             <a
-              href="mailto:thefstack@gmail.com"
+              href="mailto:yonaskassahunyoka@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.externalSiteButton}

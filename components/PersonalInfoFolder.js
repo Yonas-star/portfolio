@@ -9,11 +9,11 @@ export default function PersonalInfoFolder() {
       <div className={styles.infoCard}>
         <div className={styles.infoRow}>
           <span className={styles.infoLabel}>Name:</span>
-          <span className={styles.infoValue}>Raj Sharma</span>
+          <span className={styles.infoValue}>Yonas Kassahun</span>
         </div>
         <div className={styles.infoRow}>
           <span className={styles.infoLabel}>Location:</span>
-          <span className={styles.infoValue}>Kolkata, India</span>
+          <span className={styles.infoValue}>Addis Ababa, Ethiopia</span>
         </div>
         <div className={styles.infoRow}>
           <span className={styles.infoLabel}>Availability:</span>

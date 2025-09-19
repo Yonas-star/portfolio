@@ -49,7 +49,7 @@ export default function GithubBrowser() {
 
         <div className={styles.urlBar}>
           <Globe size={14} className={styles.urlIcon} />
-          <span className={styles.urlText}>github.com/thefstack</span>
+          <span className={styles.urlText}>github.com/yonas-star</span>
         </div>
 
         <div className={styles.browserActions}>
@@ -85,7 +85,7 @@ export default function GithubBrowser() {
               Due to security restrictions, GitHub cannot be displayed in this window.
             </p>
             <a
-              href="https://github.com/thefstack"
+              href="https://github.com/yonas-star"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.externalSiteButton}

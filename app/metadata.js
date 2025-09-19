@@ -1,9 +1,9 @@
 export default function generateMetadata() {
-  const title = "Windows 10 UI Clone - Interactive Portfolio by thefstack"
+  const title = "Windows 10 UI Clone - Interactive Portfolio by Yonas"
   const description =
     "An interactive portfolio website designed as a Windows 10 desktop clone. Explore projects, skills, and professional information through a familiar Windows 10 interface."
-  const url = "https://portfolio.thefstack.com"
-  const ogImage = "https://portfolio.thefstack.com/images/og-image.png"
+  const url = "https://portfolio.yonas.com"
+  const ogImage = "https://portfolio.yonas.com/images/og-image.png"
 
   return {
     title,
@@ -13,7 +13,7 @@ export default function generateMetadata() {
       title,
       description,
       url,
-      siteName: "thefstack Portfolio",
+      siteName: "Yonas Portfolio",
       images: [
         {
           url: ogImage,
@@ -30,7 +30,7 @@ export default function generateMetadata() {
       title,
       description,
       images: [ogImage],
-      creator: "@thefstack",
+      creator: "@yonas",
     },
     robots: {
       index: true,
@@ -46,9 +46,9 @@ export default function generateMetadata() {
     alternates: {
       canonical: url,
     },
-    authors: [{ name: "Raj Sharma", url: "https://github.com/thefstack" }],
-    creator: "Raj Sharma",
-    publisher: "thefstack",
+    authors: [{ name: "Yonas Kassahun", url: "https://github.com/yonas-star" }],
+    creator: "Yonas kassahun",
+    publisher: "yonas",
     keywords: [
       "portfolio",
       "windows 10",
@@ -57,8 +57,39 @@ export default function generateMetadata() {
       "react",
       "next.js",
       "interactive portfolio",
-      "raj sharma",
-      "thefstack",
+      "yonas",
+      "kassahun",
+      "yonas kassahun",
+      "software engineer",
+      "web designer",
+      "javascript",
+      "typescript",
+      "css",
+      "html",
+      "personal website",
+      "projects",
+      "skills",
+      "professional portfolio",
+      "responsive design",
+      "modern web development",
+      "tech portfolio",
+      "coding portfolio",
+      "software development",
+      "programming",
+      "tech skills",
+      "web applications",
+      "ui/ux design",
+      "user interface",
+      "user experience",
+      "dev portfolio",
+      "software projects",
+      "tech stack",
+      "development skills",
+      "web technologies",
+      "frontend development",
+      "backend development",
+      "full stack development",
+      "nextjs portfolio",
       "frontend developer",
       "full stack developer",
     ],

@@ -34,7 +34,7 @@ export default function LoginScreen({ onLogin }) {
         <div className={styles.centerAvatar}>
           <User size={60} color="white" />
         </div>
-        <div className={styles.centerName}>thefstack</div>
+        <div className={styles.centerName}>Yonas Kassahun</div>
 
         <form onSubmit={handleSubmit} className={styles.passwordForm}>
           <button type="submit" className={styles.submitButton} disabled={isLoading}>
@@ -49,7 +49,7 @@ export default function LoginScreen({ onLogin }) {
           <div className={styles.userAvatar}>
             <User size={20} color="white" />
           </div>
-          <div className={styles.userName}>thefstack</div>
+          <div className={styles.userName}>Yonas</div>
         </div>
       </div>
 

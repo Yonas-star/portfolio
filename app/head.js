@@ -18,9 +18,9 @@ export default function Head() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
-            name: "Raj Sharma",
+            name: "Yonas Kassahun",
             url: "https://portfolio.thefstack.com",
-            sameAs: ["https://github.com/thefstack", "https://linkedin.com/in/thefstack", "https://www.thefstack.com"],
+            sameAs: ["https://github.com/yonas-star", "https://linkedin.com/in/yonas-kassahun-0b39a2313", "https://www.thefstack.com"],
             jobTitle: "Full Stack Developer",
             worksFor: {
               "@type": "Organization",

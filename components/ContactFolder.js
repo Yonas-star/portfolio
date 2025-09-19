@@ -12,8 +12,8 @@ export default function ContactFolder() {
           <Mail size={24} className={styles.contactIcon} />
           <div className={styles.contactDetails}>
             <span className={styles.contactLabel}>Email</span>
-            <a href="mailto:rajsharmahwh19@gmail.com" className={styles.contactValue}>
-              rajsharmahwh19@gmail.com
+            <a href="mailto:yonaskassahunyoka@gmail.com" className={styles.contactValue}>
+              yonaskassahunyoka@gmail.com
             </a>
           </div>
         </div>
@@ -22,8 +22,8 @@ export default function ContactFolder() {
           <Phone size={24} className={styles.contactIcon} />
           <div className={styles.contactDetails}>
             <span className={styles.contactLabel}>Phone</span>
-            <a href="tel:+919142892678" className={styles.contactValue}>
-              +91 9142892678
+            <a href="tel:+251951187242" className={styles.contactValue}>
+              +251 951187242
             </a>
           </div>
         </div>

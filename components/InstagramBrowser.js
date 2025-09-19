@@ -53,7 +53,7 @@ export default function InstagramBrowser() {
 
         <div className={styles.urlBar}>
           <Globe size={14} className={styles.urlIcon} />
-          <span className={styles.urlText}>instagram.com/thefstack</span>
+          <span className={styles.urlText}>instagram.com/yop_asyon</span>
         </div>
 
         <div className={styles.browserActions}>
@@ -94,7 +94,7 @@ export default function InstagramBrowser() {
               Due to security restrictions, Instagram cannot be displayed in this window.
             </p>
             <a
-              href="https://instagram.com/thefstack"
+              href="https://instagram.com/yop_asyon"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.externalSiteButton}

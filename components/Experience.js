@@ -5,18 +5,18 @@ export default function Experience() {
   return (
     <div className={styles.experienceContainer}>
       <div className={styles.resumeHeader}>
-        <h1>Raj Sharma</h1>
+        <h1>Yonas Kassahun</h1>
         <div className={styles.contactInfo}>
-          <p>Kolkata, India</p>
-          <p>Email: rajsharmahwh19@gmail.com</p>
-          <p>Phone: +91 9142892678</p>
+          <p>Addis Ababa, Ethiopia</p>
+          <p>Email: yonaskassahunyoka@gmail.com</p>
+          <p>Phone: +251 951187242</p>
           <p>
-            <a href="https://linkedin.com/in/thefstack" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/yonas-kassahun-0b39a2313/" target="_blank" rel="noopener noreferrer">
               LinkedIn: linkedin.com/in/thefstack
             </a>
           </p>
           <p>
-            <a href="https://github.com/thefstack" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/yonas-star" target="_blank" rel="noopener noreferrer">
               Github: github.com/thefstack
             </a>
           </p>
