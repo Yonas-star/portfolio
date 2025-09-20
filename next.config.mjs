@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
   swcMinify: true,
   eslint: {
@@ -10,56 +11,10 @@ const nextConfig = {
   },
   images: {
     domains: ['portfolio.thefstack.com'],
-    unoptimized: true,
+    unoptimized: true, // Required for static exports
   },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
-          },
-        ],
-      },
-    ];
-  },
-  async redirects() {
-    return [
-      {
-        source: '/github',
-        destination: 'https://github.com/yonas-star',
-        permanent: true,
-      },
-      {
-        source: '/linkedin',
-        destination: 'https://linkedin.com/in/yonas-kassahun-0b39a2313',
-        permanent: true,
-      },
-      {
-        source: '/website',
-        destination: 'https://www.thefstack.com',
-        permanent: true,
-      },
-    ];
-  },
+  // Remove headers() and redirects() as they don't work with static exports
+  // We'll handle these differently for static hosting
 };
 
 export default nextConfig;

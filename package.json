@@ -2,13 +2,12 @@
   "name": "my-v0-project",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "build": "next build",
+   "scripts": {
     "dev": "next dev",
-    "lint": "next lint",
+    "build": "next build",
     "start": "next start",
-    "export": "next export",
-    "deploy": "next build && next export && gh-pages -d out"
+    "export": "next build && next export",
+    "deploy": "npm run export && echo 'your-username.github.io' > out/CNAME && gh-pages -d out"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
