@@ -1,15 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',          // Static export
+  output: 'export',                  // Static export for GH Pages
+  basePath: '/portfolio',            // Match your repo name
+  assetPrefix: '/portfolio/',        // Ensure assets load correctly
   reactStrictMode: true,
-  eslint: { ignoreDuringBuilds: true },
-  typescript: { ignoreBuildErrors: true },
-  basePath: '/portfoilio',     // Replace with your repo name
-  assetPrefix: '/my-v0-project/', // Ensures assets load on GitHub Pages
   images: {
-    domains: ['portfolio.thefstack.com'],
-    unoptimized: true, // Required for static exports
+    domains: ['portfolio.thefstack.com'], // For external images
+    unoptimized: true,                   // Required for static export
   },
 };
-
 export default nextConfig;
