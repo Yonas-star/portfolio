@@ -16,10 +16,4 @@ const nextConfig = {
   trailingSlash: true,
 };
 
-// Only set basePath and assetPrefix for production build
-if (process.env.NODE_ENV === 'production') {
-  nextConfig.basePath = '/portfolio';
-  nextConfig.assetPrefix = '/portfolio/';
-}
-
 export default nextConfig;
