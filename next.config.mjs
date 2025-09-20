@@ -1,20 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'export',          // Static export
   reactStrictMode: true,
-  swcMinify: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
+  basePath: '/portfoilio',     // Replace with your repo name
+  assetPrefix: '/my-v0-project/', // Ensures assets load on GitHub Pages
   images: {
     domains: ['portfolio.thefstack.com'],
     unoptimized: true, // Required for static exports
   },
-  // Remove headers() and redirects() as they don't work with static exports
-  // We'll handle these differently for static hosting
 };
 
 export default nextConfig;
