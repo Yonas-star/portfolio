@@ -1,5 +1,6 @@
 "use client"
 import styles from "./FolderContent.module.css"
+import styless from "./Experience.module.css"
 
 export default function AdditionalInfoFolder() {
   return (
@@ -7,45 +8,50 @@ export default function AdditionalInfoFolder() {
       <h1 className={styles.folderTitle}>Additional Information</h1>
 
       <div className={styles.additionalInfo}>
-        <div className={styles.infoSection}>
-          <h2>Work Experience</h2>
-          <div className={styles.workExperience}>
-            <h3>Full Stack Developer - IVY Knowledge Service Pvt Ltd</h3>
-            <p className={styles.workDuration}>September 2024 - Present</p>
-            <p className={styles.workDescription}>
-              IVY Knowledge Services Pvt. Ltd is a leading data analytics training institute operating as Ivy
-              Professional School. During my time there, I contributed to the development of AI-integrated learning
-              systems and internal web tools.
-            </p>
-            <ul className={styles.workResponsibilities}>
-              <li>
-                Integrated AI-powered chatbot features for resolving user queries on topics like Data Science, Data
-                Engineering, and Power BI.
-              </li>
-              <li>Developed an AI-based quiz system generating questions based on selected topics and subtopics.</li>
-              <li>
-                Implemented an AI-driven review system analyzing quiz performance and offering personalized improvement
-                suggestions.
-              </li>
-              <li>
-                Built a dynamic lesson plan feature that unlocks quizzes upon completion of daily lessons to encourage
-                progressive learning.
-              </li>
-              <li>
-                Created an AI-powered resume builder with ATS score analysis and skill scoring for optimized resume
-                building.
-              </li>
-              <li>Collaborated with Agile teams, managing repositories and project workflows using GitHub.</li>
-            </ul>
-          </div>
+        <div className={styless.infoSection}>
+                  <h2>Work Experience</h2>
+                  
+                  <div className={styless.experienceItem}>
+                    <div className={styles.jobHeader}>
+                      <h3>Software Application Developer</h3>
+                      <span className={styles.date}>November 2023 - Present</span>
+                    </div>
+                    <div className={styles.company}>
+                      <strong>Information Network Security Agency (INSA)</strong> · Full-time
+                    </div>
+                    <p>Addis Ababa, Ethiopia · On-site</p>
+                    <ul>
+                      <li>Developed secure web applications using React.js and Keycloak for authentication</li>
+                      <li>Built responsive and user-friendly interfaces for government applications</li>
+                      <li>Collaborated with cross-functional teams to deliver high-quality software solutions</li>
+                      <li>Implemented security best practices in application development</li>
+                      <li>Maintained and enhanced existing applications to meet new requirements</li>
+                    </ul>
+                  </div>
+          
+                  <div className={styless.experienceItem}>
+                    <div className={styless.jobHeader}>
+                      <h3>Application Software Developer</h3>
+                      <span className={styless.date}>November 2012 - Present</span>
+                    </div>
+                    <div className={styless.company}>
+                      <strong>Information Network Security Agency (INSA)</strong> · Part-time
+                    </div>
+                    <p>Addis Ababa, Ethiopia · On-site</p>
+                    <ul>
+                      <li>Developed mobile applications using React Native for cross-platform compatibility</li>
+                      <li>Built backend services and APIs using Node.js for various applications</li>
+                      <li>Worked on security-focused applications for government use</li>
+                      <li>Participated in the full software development lifecycle from concept to deployment</li>
+                    </ul>
+                  </div>
+          
         </div>
 
         <div className={styles.infoSection}>
           <h2>Languages</h2>
           <ul className={styles.languageList}>
             <li>English (Professional)</li>
-            <li>Hindi (Native)</li>
-            <li>Bengali (Conversational)</li>
           </ul>
         </div>
 

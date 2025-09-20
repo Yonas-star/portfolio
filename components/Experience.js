@@ -12,17 +12,17 @@ export default function Experience() {
           <p>Phone: +251 951187242</p>
           <p>
             <a href="https://www.linkedin.com/in/yonas-kassahun-0b39a2313/" target="_blank" rel="noopener noreferrer">
-              LinkedIn: linkedin.com/in/thefstack
+              LinkedIn: linkedin.com/in/yonas-kassahun-0b39a2313
             </a>
           </p>
           <p>
             <a href="https://github.com/yonas-star" target="_blank" rel="noopener noreferrer">
-              Github: github.com/thefstack
+              Github: github.com/yonas-star
             </a>
           </p>
           <p>
-            <a href="https://www.thefstack.com" target="_blank" rel="noopener noreferrer">
-              Website: www.thefstack.com
+            <a href="https://github.com/yonas-star" target="_blank" rel="noopener noreferrer">
+              Website: https://github.com/yonas-star
             </a>
           </p>
         </div>
@@ -30,36 +30,123 @@ export default function Experience() {
 
       <section className={styles.resumeSection}>
         <h2>Work Experience</h2>
+        
         <div className={styles.experienceItem}>
           <div className={styles.jobHeader}>
-            <h3>Full Stack Developer- IVY Knowledge Service Pvt Ltd</h3>
-            <span className={styles.date}>September 2024 - Present</span>
+            <h3>Software Application Developer</h3>
+            <span className={styles.date}>November 2023 - Present</span>
           </div>
-          <p>
-            IVY Knowledge Services Pvt. Ltd is a leading data analytics training institute operating as Ivy Professional
-            School. During my time there, I contributed to the development of AI-integrated learning systems and
-            internal web tools
-          </p>
+          <div className={styles.company}>
+            <strong>Information Network Security Agency (INSA)</strong> · Full-time
+          </div>
+          <p>Addis Ababa, Ethiopia · On-site</p>
           <ul>
-            <li>
-              Integrated AI-powered chatbot features for resolving user queries on topics like Data Science, Data
-              Engineering, and Power BI.
-            </li>
-            <li>Developed an AI-based quiz system generating questions based on selected topics and subtopics.</li>
-            <li>
-              Implemented an AI-driven review system analyzing quiz performance and offering personalized improvement
-              suggestions.
-            </li>
-            <li>
-              Built a dynamic lesson plan feature that unlocks quizzes upon completion of daily lessons to encourage
-              progressive learning.
-            </li>
-            <li>
-              Created an AI-powered resume builder with ATS score analysis and skill scoring for optimized resume
-              building.
-            </li>
-            <li>Collaborated with Agile teams, managing repositories and project workflows using GitHub.</li>
+            <li>Developed secure web applications using React.js and Keycloak for authentication</li>
+            <li>Built responsive and user-friendly interfaces for government applications</li>
+            <li>Collaborated with cross-functional teams to deliver high-quality software solutions</li>
+            <li>Implemented security best practices in application development</li>
+            <li>Maintained and enhanced existing applications to meet new requirements</li>
           </ul>
+        </div>
+
+        <div className={styles.experienceItem}>
+          <div className={styles.jobHeader}>
+            <h3>Application Software Developer</h3>
+            <span className={styles.date}>November 2012 - Present</span>
+          </div>
+          <div className={styles.company}>
+            <strong>Information Network Security Agency (INSA)</strong> · Part-time
+          </div>
+          <p>Addis Ababa, Ethiopia · On-site</p>
+          <ul>
+            <li>Developed mobile applications using React Native for cross-platform compatibility</li>
+            <li>Built backend services and APIs using Node.js for various applications</li>
+            <li>Worked on security-focused applications for government use</li>
+            <li>Participated in the full software development lifecycle from concept to deployment</li>
+          </ul>
+        </div>
+
+      </section>
+
+      <section className={styles.resumeSection}>
+        <h2>Skills</h2>
+        <div className={styles.skillsGrid}>
+          <div className={styles.skillCategory}>
+            <h3>Programming Languages</h3>
+            <ul className={styles.skillsList}>
+              <li>JavaScript</li>
+              <li>Java</li>
+              <li>C#</li>
+              <li>Python</li>
+              <li>Kotlin</li>
+              <li>HTML5</li>
+              <li>CSS3</li>
+            </ul>
+          </div>
+          
+          <div className={styles.skillCategory}>
+            <h3>Frameworks & Libraries</h3>
+            <ul className={styles.skillsList}>
+              <li>React.js</li>
+              <li>Next.js</li>
+              <li>Express.js</li>
+              <li>Node.js</li>
+              <li>React Native</li>
+              <li>ASP.NET</li>
+            </ul>
+          </div>
+          
+          <div className={styles.skillCategory}>
+            <h3>Databases</h3>
+            <ul className={styles.skillsList}>
+              <li>MongoDB</li>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+            </ul>
+          </div>
+          
+          <div className={styles.skillCategory}>
+            <h3>Tools & Technologies</h3>
+            <ul className={styles.skillsList}>
+              <li>Git</li>
+              <li>Postman</li>
+              <li>Keycloak</li>
+              <li>REST APIs</li>
+              <li>Data Analysis</li>
+              <li>Artificial Intelligence (AI)</li>
+              <li>Problem Solving</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.resumeSection}>
+        <h2>Certifications</h2>
+        <div className={styles.certifications}>
+          <div className={styles.certificationItem}>
+            <h3>Data Analysis Fundamentals</h3>
+            <p>Udacity</p>
+          </div>
+          <div className={styles.certificationItem}>
+            <h3>Artificial Intelligence Fundamentals</h3>
+            <p>Udacity</p>
+          </div>
+          <div className={styles.certificationItem}>
+            <h3>Programming Fundamentals</h3>
+            <p>Udacity</p>
+          </div>
+          <div className={styles.certificationItem}>
+            <h3>Android Developer Fundamentals</h3>
+            <p>Udacity</p>
+          </div>
+          <div className={styles.certificationItem}>
+            <h3>C# (Basic) Certificate</h3>
+            <p>HackerRank</p>
+          </div>
+          <div className={styles.certificationItem}>
+            <h3>Problem Solving (Basic) Certificate</h3>
+            <p>HackerRank</p>
+          </div>
         </div>
       </section>
 
@@ -140,72 +227,6 @@ export default function Experience() {
             <li>Built a secure authentication system for user registration and login.</li>
           </ul>
         </div>
-
-        <div className={styles.projectItem}>
-          <h3>
-            Rocket Health |{" "}
-            <a
-              href="https://rockethealththefstack.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.projectLink}
-            >
-              Live Demo
-            </a>
-          </h3>
-          <ul>
-            <li>Developed a static healthcare-themed web application with a focus on clean UI and minimal design.</li>
-            <li>Implemented a typing text animation for improved interactivity using pure CSS.</li>
-            <li>Structured entirely using HTML and CSS without any JavaScript frameworks.</li>
-            <li>Designed an informative layout to clearly present health-related content.</li>
-            <li>Emphasized performance and responsiveness for fast user experience.</li>
-          </ul>
-        </div>
-
-        <div className={styles.projectItem}>
-          <h3>
-            Basic E-Commerce API |{" "}
-            <a
-              href="https://github.com/thefstack/first-ecommerce-api"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.projectLink}
-            >
-              GitHub Repository
-            </a>
-          </h3>
-          <ul>
-            <li>Implemented secure user authentication with OTP-based email verification.</li>
-            <li>Designed and developed CRUD operations for product management.</li>
-            <li>Secured API endpoints using JWT-based token authentication.</li>
-            <li>Integrated MongoDB for efficient data storage and retrieval.</li>
-            <li>Utilized Nodemailer for sending verification emails during user registration.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section className={styles.resumeSection}>
-        <h2>Skills</h2>
-        <ul className={styles.skillsList}>
-          <li>
-            <strong>Languages:</strong> JavaScript, Java
-          </li>
-          <li>
-            <strong>Frameworks:</strong> React.js, Next.js, Express.js, Node.js
-          </li>
-          <li>
-            <strong>Databases:</strong> MongoDB, MySQL
-          </li>
-          <li>
-            <strong>Tools & Platform:</strong> Git, Postman
-          </li>
-          <li>
-            <strong>Other Skills:</strong> REST APIs, State Management (Context API), Agile Methodologies
-          </li>
-          <li>
-            <strong>Soft Skills:</strong> Problem-solving, Team Collaboration
-          </li>
-        </ul>
       </section>
 
       <section className={styles.resumeSection}>

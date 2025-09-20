@@ -54,6 +54,11 @@ const portfolioApps = [
     icon: <User size={24} color="#0078d7" />,
   },
   {
+    id: "experience",
+    name: "work Experience",
+    icon: <User size={24} color="#0078d7" />,
+  },
+  {
     id: "contact",
     name: "Contact",
     icon: <Phone size={24} color="#0078d7" />,

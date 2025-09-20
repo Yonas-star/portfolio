@@ -18,6 +18,7 @@ import InstagramBrowser from "./InstagramBrowser"
 import MailBrowser from "./MailBrowser"
 import FileExplorer from "./FileExplorer"
 import ResumePdfViewer from "./ResumePdfViewer"
+import Experience from "./Experience"
 
 function getInitialWindowPosition(appId) {
   // Get window dimensions
@@ -201,6 +202,8 @@ export default function Window({ app, onClose, isActive, onFocus, zIndex, onMini
         return <FileExplorer openWindow={app.openWindow} />
       case "resume-pdf":
         return <ResumePdfViewer />
+      case "experience":
+        return <Experience />
       default:
         return (
           <div className={styles.emptyContent}>

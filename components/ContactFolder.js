@@ -31,14 +31,14 @@ export default function ContactFolder() {
         <div className={styles.contactItem}>
           <Globe size={24} className={styles.contactIcon} />
           <div className={styles.contactDetails}>
-            <span className={styles.contactLabel}>Website</span>
+            <span className={styles.contactLabel}>My github</span>
             <a
-              href="https://www.thefstack.com"
+              href="https://www.github.com/yonas-star"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.contactValue}
             >
-              www.thefstack.com
+              https://www.github.com/yonas-star
             </a>
           </div>
         </div>

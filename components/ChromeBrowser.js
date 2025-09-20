@@ -12,10 +12,10 @@ import Image from "next/image"
 
 
 export default function ChromeBrowser() {
-  const [url, setUrl] = useState("https://www.thefstack.com")
-  const [inputUrl, setInputUrl] = useState("www.thefstack.com")
+  const [url, setUrl] = useState("https://www.yonaskassahun.com")
+  const [inputUrl, setInputUrl] = useState("www.yonaskassahun.com")
   const [isLoading, setIsLoading] = useState(true)
-  const [history, setHistory] = useState(["https://www.thefstack.com"])
+  const [history, setHistory] = useState(["https://www.yonaskassahun.com"])
   const [historyIndex, setHistoryIndex] = useState(0)
   const [searchQuery, setSearchQuery] = useState("")
   const browserContentRef = useRef(null)
@@ -289,7 +289,7 @@ export default function ChromeBrowser() {
 
   const goHome = () => {
     setIsLoading(true)
-    const homeUrl = "https://www.thefstack.com"
+    const homeUrl = "https://www.yonaskassahun.com"
     setUrl(homeUrl)
 
     // Add to history
@@ -477,7 +477,6 @@ export default function ChromeBrowser() {
               </motion.div>
             </div>
           </header>
-
           {/* About Section */}
           <section id="about" className={styles.section}>
             <div className={styles.container}>

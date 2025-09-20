@@ -84,7 +84,7 @@ export default function StartMenu({ openWindow, onLogout }) {
       <div className={styles.footer}>
         <div className={styles.userProfile}>
           <User size={24} />
-          <span>thefstack</span>
+          <span>yonas</span>
         </div>
         <button className={styles.powerButton} onClick={handleLogout}>
           <Power size={20} />
