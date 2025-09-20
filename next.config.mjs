@@ -13,10 +13,6 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
-
-  // 👇 Add these two lines for GitHub Pages
-  basePath: '/portfolio',
-  assetPrefix: '/portfolio/',
 };
 
 export default nextConfig;
