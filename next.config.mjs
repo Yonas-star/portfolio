@@ -45,12 +45,12 @@ const nextConfig = {
     return [
       {
         source: '/github',
-        destination: 'https://github.com/thefstack',
+        destination: 'https://github.com/yonas-star',
         permanent: true,
       },
       {
         source: '/linkedin',
-        destination: 'https://linkedin.com/in/thefstack',
+        destination: 'https://linkedin.com/in/yonas-kassahun-0b39a2313',
         permanent: true,
       },
       {
