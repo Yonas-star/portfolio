@@ -7,8 +7,7 @@ import styles from "./ChromeBrowser.module.css"
 import logo from "../public/images/yonas-logo.jpg"
 import aboutlogo from "../public/images/yonas.jpg"
 import Image from "next/image"
-
-// import styles from "./Portfolio.module.css"
+import emailjs from 'emailjs-com'
 
 
 export default function ChromeBrowser() {
@@ -19,67 +18,74 @@ export default function ChromeBrowser() {
   const [historyIndex, setHistoryIndex] = useState(0)
   const [searchQuery, setSearchQuery] = useState("")
   const browserContentRef = useRef(null)
-  const mockContentRef = useRef(null)
   const browserRef = useRef(null)
-  const iframeRef = useRef(null)
 
   const [activeTab, setActiveTab] = useState("all")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  // Sample project data
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  })
+  const [isSending, setIsSending] = useState(false)
+  const [sendStatus, setSendStatus] = useState('')
+
+  // Updated project data with your actual projects
   const projects = {
     all: [
       {
         id: 1,
-        title: "Planner360",
-        description: "Ethiopian planner app with task planning and cultural event integration.",
+        title: "PrepAI",
+        description: "AI-powered learning platform with chatbot, quiz system, and resume builder.",
         category: "web",
-        technologies: ["React", "Next.js", "Node.js"],
+        technologies: ["React", "Next.js", "Node.js", "AI Integration"],
         image: "/api/placeholder/300/200",
-        link: "#"
+        link: "https://prepai.ivyproschool.com/"
       },
       {
         id: 2,
-        title: "My School",
-        description: "School management system with authentication and admin dashboard.",
+        title: "PDF Splitter",
+        description: "Web application for splitting PDF files into individual pages or custom ranges.",
         category: "web",
-        technologies: ["React", "Keycloak", "PostgreSQL"],
+        technologies: ["React", "Node.js", "Express", "PDF.js"],
         image: "/api/placeholder/300/200",
-        link: "#"
+        link: "https://pdf-splitter.thefstack.com/"
       },
       {
         id: 3,
-        title: "Sences",
-        description: "People-counting mobile application with real-time analytics.",
-        category: "mobile",
-        technologies: ["React Native", "Firebase"],
+        title: "Real Time Chat Application",
+        description: "Real-time chat app with user authentication and instant messaging.",
+        category: "web",
+        technologies: ["React", "Socket.io", "Strapi", "Node.js"],
         image: "/api/placeholder/300/200",
         link: "#"
       },
       {
         id: 4,
+        title: "Rocket Health",
+        description: "Healthcare-themed web application with clean UI and minimal design.",
+        category: "web",
+        technologies: ["HTML", "CSS", "JavaScript"],
+        image: "/api/placeholder/300/200",
+        link: "https://rockethealththefstack.netlify.app/"
+      },
+      {
+        id: 5,
+        title: "E-commerce API",
+        description: "Full-stack e-commerce platform with payment integration.",
+        category: "web",
+        technologies: ["Node.js", "Express", "MongoDB", "JWT"],
+        image: "/api/placeholder/300/200",
+        link: "https://github.com/thefstack/first-ecommerce-api"
+      },
+      {
+        id: 6,
         title: "Translation Platform",
         description: "Platform for English-Amharic translation services.",
         category: "translation",
         technologies: ["Next.js", "MongoDB"],
-        image: "/api/placeholder/300/200",
-        link: "#"
-      },
-      {
-        id: 5,
-        title: "E-commerce Solution",
-        description: "Full-stack e-commerce platform with payment integration.",
-        category: "web",
-        technologies: ["React", "Node.js", "Stripe"],
-        image: "/api/placeholder/300/200",
-        link: "#"
-      },
-      {
-        id: 6,
-        title: "Tech Blog",
-        description: "Technical blog focused on web development and Ethiopian tech scene.",
-        category: "web",
-        technologies: ["Gatsby", "GraphQL", "Contentful"],
         image: "/api/placeholder/300/200",
         link: "#"
       }
@@ -96,55 +102,87 @@ export default function ChromeBrowser() {
 
   const filteredProjects = activeTab === "all" ? projects.all : projects[activeTab];
 
-  // Skills data
+  // Updated skills data
   const skills = [
     { name: "React", level: 90 },
     { name: "Next.js", level: 85 },
     { name: "Node.js", level: 80 },
-    { name: "PostgreSQL", level: 75 },
     { name: "JavaScript", level: 95 },
+    { name: "HTML5", level: 95 },
     { name: "CSS/SCSS", level: 85 },
-    { name: "HTML", level: 95 },
+    { name: "MongoDB", level: 75 },
+    { name: "PostgreSQL", level: 70 },
     { name: "Git", level: 80 },
     { name: "Keycloak", level: 70 },
-    { name: "Translation", level: 90 }
+    { name: "React Native", level: 75 },
+    { name: "Python", level: 65 }
   ];
 
-  // Experience data
+  // Updated experience data with your INSA experience
   const experiences = [
     {
-      role: "Full Stack Developer",
-      company: "Tech Solutions ET",
-      period: "2022 - Present",
-      description: "Developed web applications using React, Next.js, and Node.js. Implemented authentication systems with Keycloak and database solutions with PostgreSQL."
+      role: "Software Application Developer",
+      company: "Information Network Security Agency (INSA)",
+      period: "Nov 2023 - Present",
+      description: "Developed secure web applications using React.js and Keycloak for authentication. Built responsive interfaces for government applications and implemented security best practices."
     },
     {
-      role: "Freelance Translator",
-      company: "Self-Employed",
-      period: "2020 - Present",
-      description: "Provided professional English-Amharic translation services for various clients including tech companies and educational institutions."
-    },
-    {
-      role: "Web Development Intern",
-      company: "Digital Ethiopia",
-      period: "2021 - 2022",
-      description: "Assisted in developing responsive websites and learned industry best practices for web development."
+      role: "Application Software Developer",
+      company: "Information Network Security Agency (INSA)",
+      period: "Nov 2022 - Present",
+      description: "Developed mobile applications using React Native and built backend services with Node.js. Worked on security-focused applications for government use."
     }
   ];
 
-  // Education data
+  // Updated education data
   const education = [
-    {
-      degree: "BSc in Computer Science",
-      institution: "Addis Ababa University",
-      period: "2018 - 2022",
-      description: "Focused on software engineering, algorithms, and database management."
-    },
     {
       degree: "Full Stack Web Development Bootcamp",
       institution: "Online Program",
       period: "2021",
       description: "Intensive program covering React, Node.js, and modern web development practices."
+    }
+  ];
+
+  // Updated certifications data
+  const certifications = [
+    {
+      name: "Data Analysis Fundamentals",
+      issuer: "Udacity",
+      date: "2024",
+      verifyLink: "https://www.udacity.com/certificate/e/d5b89f16-c43d-11ef-972f-dbe8c61468b6"
+    },
+    {
+      name: "Artificial Intelligence Fundamentals",
+      issuer: "Udacity",
+      date: "2024",
+      verifyLink: "https://www.udacity.com/certificate/e/4a707312-c4f0-11ef-beae-afa624f44a8b"
+    },
+    {
+      name: "Programming Fundamentals",
+      issuer: "Udacity",
+      date: "2024",
+      verifyLink: "https://www.udacity.com/certificate/e/61e13c48-be9c-11ef-a9f5-7b239522cbc0"
+    },
+    {
+      name: "Android Developer Fundamentals",
+      issuer: "Udacity",
+      date: "2024",
+      verifyLink: "https://www.udacity.com/certificate/e/cc2c1684-c43e-11ef-995f-a787d421a1c4"
+    },
+    {
+      name: "C# (Basic) Certificate",
+      issuer: "HackerRank",
+      date: "2024",
+      verifyLink: "https://www.hackerrank.com/certificates/a07fefcffd84",
+      iframeLink: "https://www.hackerrank.com/certificates/iframe/a07fefcffd84"
+    },
+    {
+      name: "Problem Solving (Basic) Certificate",
+      issuer: "HackerRank",
+      date: "2024",
+      verifyLink: "https://www.hackerrank.com/certificates/448c62477d34",
+      iframeLink: "https://www.hackerrank.com/certificates/iframe/448c62477d34"
     }
   ];
 
@@ -169,6 +207,58 @@ export default function ChromeBrowser() {
       avatar: "/api/placeholder/60/60"
     }
   ];
+
+  useEffect(() => {
+    emailjs.init("wy6To4t3VpI5x_q8f") // You'll need to add your public key here
+  }, [])
+
+  // Handle form input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsSending(true)
+    setSendStatus('')
+
+    try {
+      // Using your EmailJS service and template IDs
+      await emailjs.send(
+        'service_hq7iq2k',     // Your Service ID
+        'template_rqiz27m',    // Your Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Yonas Kassahun',
+          reply_to: formData.email
+        }
+      )
+
+      setSendStatus('success')
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      })
+    } catch (error) {
+      console.error('Failed to send email:', error)
+      setSendStatus('error')
+    } finally {
+      setIsSending(false)
+      // Clear status message after 5 seconds
+      setTimeout(() => setSendStatus(''), 5000)
+    }
+  }
   useEffect(() => {
     // Update input URL when URL changes
     if (url.startsWith("https://")) {
@@ -180,47 +270,6 @@ export default function ChromeBrowser() {
     }
   }, [url])
 
-  // Handle clicks outside the iframe to deactivate it
-  // useEffect(() => {
-  //   const handleClickOutside = (e) => {
-  //     if (browserContentRef.current && !browserContentRef.current.contains(e.target)) {
-  //       setIframeActive(false)
-  //     }
-  //   }
-
-  //   document.addEventListener("mousedown", handleClickOutside)
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside)
-  //   }
-  // }, [])
-
-  // Prevent events from bubbling outside the browser component
-  // useEffect(() => {
-  //   const browser = browserRef.current
-  //   if (!browser) return
-
-  //   const stopPropagation = (e) => {
-  //     // Don't stop propagation for wheel events to allow scrolling
-  //     if (e.type !== "wheel") {
-  //       e.stopPropagation()
-  //     }
-  //   }
-
-  //   // Add event listeners to capture and stop events
-  //   const events = ["click", "mousedown", "mouseup", "mousemove", "touchstart", "touchend", "touchmove"]
-
-  //   events.forEach((event) => {
-  //     browser.addEventListener(event, stopPropagation, { capture: true })
-  //   })
-
-  //   return () => {
-  //     events.forEach((event) => {
-  //       browser.removeEventListener(event, stopPropagation, { capture: true })
-  //     })
-  //   }
-  // }, [])
-
-  // Add this function after the other useEffect hooks
   useEffect(() => {
     const handleWheel = (e) => {
       // Don't stop propagation for wheel events to allow scrolling
@@ -281,10 +330,6 @@ export default function ChromeBrowser() {
 
   const reload = () => {
     setIsLoading(true)
-    // Force iframe reload by setting a key with current timestamp
-    if (iframeRef.current) {
-      iframeRef.current.src = iframeRef.current.src
-    }
   }
 
   const goHome = () => {
@@ -311,11 +356,6 @@ export default function ChromeBrowser() {
 
   const currentDomain = getDomain(url)
 
-  // Handle iframe load event
-  const handleIframeLoad = () => {
-    setIsLoading(false)
-  }
-
   return (
     <div className={styles.browser}>
       <div className={styles.toolbar}>
@@ -331,7 +371,7 @@ export default function ChromeBrowser() {
                   <path d="M6.5 14.5L9 9" stroke="#FBBC05" strokeWidth="4" strokeLinecap="round" />
                   <path d="M15 9L17.5 14.5" stroke="#34A853" strokeWidth="4" strokeLinecap="round" />
                 </svg>
-              ) : currentDomain.includes("thefstack") ? (
+              ) : currentDomain.includes("yonaskassahun") ? (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="24" height="24" rx="4" fill="#2563EB" />
                   <path d="M7 7H17V9H7V7Z" fill="white" />
@@ -415,6 +455,7 @@ export default function ChromeBrowser() {
               <a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
               <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
               <a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
+              <a href="#certifications" onClick={() => setIsMenuOpen(false)}>Certifications</a>
               <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
             </div>
 
@@ -447,7 +488,7 @@ export default function ChromeBrowser() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                Web Developer | Translator | Tech Enthusiast
+                Full Stack Developer | Software Engineer
               </motion.p>
               <motion.p
                 className={styles.heroDescription}
@@ -455,7 +496,7 @@ export default function ChromeBrowser() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                I create innovative web solutions and provide professional translation services from Addis Ababa, Ethiopia.
+                I create innovative web solutions and software applications with a focus on security and user experience. Based in Addis Ababa, Ethiopia.
               </motion.p>
               <motion.div
                 className={styles.heroButtons}
@@ -477,6 +518,7 @@ export default function ChromeBrowser() {
               </motion.div>
             </div>
           </header>
+
           {/* About Section */}
           <section id="about" className={styles.section}>
             <div className={styles.container}>
@@ -498,25 +540,25 @@ export default function ChromeBrowser() {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <p>
-                    I'm a passionate developer and translator based in Addis Ababa, Ethiopia. With a strong foundation in web technologies and a love for creating meaningful digital experiences, I specialize in building modern web applications that solve real-world problems.
+                    I'm a passionate software developer with experience at the Information Network Security Agency (INSA) and IVY Knowledge Services. With a strong foundation in web technologies and security, I specialize in building modern applications that solve real-world problems.
                   </p>
                   <p>
-                    My journey in tech started with computer science studies, and I've since expanded my skills through various projects and continuous learning. I'm proficient in React, Next.js, Node.js, and PostgreSQL, and I have experience implementing authentication systems with Keycloak.
+                    My journey in tech started with computer science studies at Addis Ababa University, and I've since expanded my skills through various projects and continuous learning. I'm proficient in React, Next.js, Node.js, and have experience implementing authentication systems with Keycloak.
                   </p>
                   <p>
-                    Beyond development, I offer professional English-Amharic translation services, bridging language gaps for businesses and organizations. I believe in the power of technology to transform communities and am particularly interested in solutions that address local challenges in the Ethiopian context.
+                    I believe in the power of technology to transform communities and am particularly interested in solutions that address local challenges in the Ethiopian context. My work at INSA has given me valuable experience in developing secure applications for government use.
                   </p>
                   <div className={styles.aboutStats}>
                     <div className={styles.stat}>
-                      <span className={styles.statNumber}>15+</span>
+                      <span className={styles.statNumber}>20+</span>
                       <span className={styles.statLabel}>Projects Completed</span>
                     </div>
                     <div className={styles.stat}>
-                      <span className={styles.statNumber}>3+</span>
+                      <span className={styles.statNumber}>5+</span>
                       <span className={styles.statLabel}>Years Experience</span>
                     </div>
                     <div className={styles.stat}>
-                      <span className={styles.statNumber}>10+</span>
+                      <span className={styles.statNumber}>15+</span>
                       <span className={styles.statLabel}>Happy Clients</span>
                     </div>
                   </div>
@@ -644,7 +686,9 @@ export default function ChromeBrowser() {
                     <div className={styles.projectImage}>
                       <img src={project.image} alt={project.title} />
                       <div className={styles.projectOverlay}>
-                        <a href={project.link} className={styles.projectLink}>View Project</a>
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" className={styles.projectLink}>
+                          {project.link === "#" ? "View Details" : "Live Demo"}
+                        </a>
                       </div>
                     </div>
                     <div className={styles.projectContent}>
@@ -688,7 +732,8 @@ export default function ChromeBrowser() {
                   >
                     <div className={styles.timelineMarker}></div>
                     <div className={styles.timelineContent}>
-                      <h4>{exp.role} | {exp.company}</h4>
+                      <h4>{exp.role}</h4>
+                      <div className={styles.company}>{exp.company}</div>
                       <span className={styles.timelinePeriod}>{exp.period}</span>
                       <p>{exp.description}</p>
                     </div>
@@ -711,6 +756,59 @@ export default function ChromeBrowser() {
                       <span className={styles.timelinePeriod}>{edu.institution} | {edu.period}</span>
                       <p>{edu.description}</p>
                     </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Certifications Section */}
+          <section id="certifications" className={`${styles.section} ${styles.certificationsSection}`}>
+            <div className={styles.container}>
+              <motion.h2
+                className={styles.sectionTitle}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                Certifications
+              </motion.h2>
+
+              <div className={styles.certificationsGrid}>
+                {certifications.map((cert, index) => (
+                  <motion.div
+                    key={index}
+                    className={styles.certificationItem}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <h3>{cert.name}</h3>
+                    <p className={styles.certificationIssuer}>{cert.issuer} | {cert.date}</p>
+
+                    {cert.iframeLink ? (
+                      <>
+                        <a
+                          href={cert.verifyLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.certificationLink}
+                        >
+                          Verify Certificate
+                        </a>
+                      </>
+                    ) : (
+                      <a
+                        href={cert.verifyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.certificationLink}
+                      >
+                        Verify Certificate
+                      </a>
+                    )}
                   </motion.div>
                 ))}
               </div>
@@ -798,9 +896,15 @@ export default function ChromeBrowser() {
                   </div>
 
                   <div className={styles.socialLinks}>
-                    <a href="#" className={styles.socialLink}>GitHub</a>
-                    <a href="#" className={styles.socialLink}>LinkedIn</a>
-                    <a href="#" className={styles.socialLink}>Twitter</a>
+                    <a href="https://github.com/yonas-star" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                      GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/yonas-kassahun-0b39a2313/" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                      LinkedIn
+                    </a>
+                    <a href="#" className={styles.socialLink}>
+                      Twitter
+                    </a>
                   </div>
                 </motion.div>
 
@@ -810,24 +914,76 @@ export default function ChromeBrowser() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
+                  onSubmit={handleSubmit}
                 >
                   <div className={styles.formGroup}>
                     <label htmlFor="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name" />
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your Name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
                   <div className={styles.formGroup}>
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" placeholder="Your Email" />
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Your Email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
                   <div className={styles.formGroup}>
                     <label htmlFor="subject">Subject</label>
-                    <input type="text" id="subject" placeholder="Subject" />
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      placeholder="Subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
                   <div className={styles.formGroup}>
                     <label htmlFor="message">Message</label>
-                    <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="5"
+                      placeholder="Your Message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
+                    ></textarea>
                   </div>
-                  <button type="submit" className={styles.submitBtn}>Send Message</button>
+
+                  {/* Status message */}
+                  {sendStatus === 'success' && (
+                    <div className={styles.successMessage}>
+                      Message sent successfully! I'll get back to you soon.
+                    </div>
+                  )}
+                  {sendStatus === 'error' && (
+                    <div className={styles.errorMessage}>
+                      Failed to send message. Please try again or email me directly.
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    className={styles.submitBtn}
+                    disabled={isSending}
+                  >
+                    {isSending ? 'Sending...' : 'Send Message'}
+                  </button>
                 </motion.form>
               </div>
             </div>
@@ -839,7 +995,7 @@ export default function ChromeBrowser() {
               <div className={styles.footerContent}>
                 <div className={styles.footerLogo}>
                   <h3>Yonas Kassahun</h3>
-                  <p>Web Developer & Translator</p>
+                  <p>Full Stack Developer & Software Engineer</p>
                 </div>
 
                 <div className={styles.footerLinks}>
@@ -855,16 +1011,16 @@ export default function ChromeBrowser() {
                     <h4>Services</h4>
                     <a href="#">Web Development</a>
                     <a href="#">Mobile Apps</a>
-                    <a href="#">Translation</a>
+                    <a href="#">Software Solutions</a>
                     <a href="#">Consulting</a>
                   </div>
 
                   <div className={styles.footerColumn}>
                     <h4>Connect</h4>
-                    <a href="#">GitHub</a>
-                    <a href="#">LinkedIn</a>
+                    <a href="https://github.com/yonas-star" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/yonas-kassahun-0b39a2313/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                     <a href="#">Twitter</a>
-                    <a href="#">Email</a>
+                    <a href="mailto:yonaskassahunyoka@gmail.com">Email</a>
                   </div>
                 </div>
               </div>
