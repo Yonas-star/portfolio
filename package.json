@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next build && next export",
-    "deploy": "npm run build && gh-pages -d out"
+    "deploy": "npm run build && xcopy out docs /E /H /C /I && echo. > docs\\.nojekyll"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
